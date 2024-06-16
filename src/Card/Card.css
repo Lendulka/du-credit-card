@@ -1,0 +1,24 @@
+.card__form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.card__input {
+  padding: 6px 5px;
+  width: 4rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #fff;
+  color: rgb(13, 50, 87);
+  border: 1px solid rgb(23, 93, 163);
+}
+
+:focus-visible {
+  outline: none;
+}

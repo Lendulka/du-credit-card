@@ -1,10 +1,13 @@
 import { useEffect, useRef } from 'react'
+import './Card.css'
 
 export const Card = () => {
   const cardInputRef = useRef<HTMLInputElement[]>([])
 
   const pushReference = (input: HTMLInputElement) => {
-    cardInputRef.current.push(input!)
+    if (input && !cardInputRef.current.includes(input)) {
+      cardInputRef.current.push(input!)
+    }
   }
 
   console.log(cardInputRef)
@@ -19,7 +22,7 @@ export const Card = () => {
     const regex = /^[0-9]+$/
 
     if (cardInputString.match(regex) === null) {
-      alert('Zadej číslo')
+      alert('Zadej číslo!')
       e.target.value = ''
     }
 
@@ -33,9 +36,8 @@ export const Card = () => {
   }
 
   return (
-    <div>
+    <form className="card__form">
       <label className="card__label">
-        Zadej 4 čísla
         <input
           type="text"
           className="card__input"
@@ -43,13 +45,11 @@ export const Card = () => {
           name="card-1"
           required
           maxLength={4}
-          placeholder="XXXX"
           ref={pushReference}
           onChange={handleChange}
         />
       </label>
       <label className="card__label">
-        Zadej 4 čísla
         <input
           type="text"
           className="card__input"
@@ -57,13 +57,11 @@ export const Card = () => {
           name="card-2"
           required
           maxLength={4}
-          placeholder="XXXX"
           ref={pushReference}
           onChange={handleChange}
         />
       </label>
       <label className="card__label">
-        Zadej 4 čísla
         <input
           type="text"
           className="card__input"
@@ -71,13 +69,11 @@ export const Card = () => {
           name="card-3"
           required
           maxLength={4}
-          placeholder="XXXX"
           ref={pushReference}
           onChange={handleChange}
         />
       </label>
       <label className="card__label">
-        Zadej 4 čísla
         <input
           type="text"
           className="card__input"
@@ -85,12 +81,11 @@ export const Card = () => {
           name="card-4"
           required
           maxLength={4}
-          placeholder="XXXX"
           ref={pushReference}
           onChange={handleChange}
         />
       </label>
-    </div>
+    </form>
   )
 }
 
